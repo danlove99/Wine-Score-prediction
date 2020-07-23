@@ -79,7 +79,7 @@ y = np.nan_to_num(y)
 # Create and comopile model
 model = tf.keras.Sequential([
   layers.Dense(570, input_dim=570),
-  layers.Dense(570, activation='relu'),
+  layers.Dense((570 * 2), activation='relu'),
   layers.Dense((570 / 2), activation='relu'),
   layers.Dense(1)
 ])
