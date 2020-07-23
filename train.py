@@ -20,7 +20,7 @@ max_length = 50
 trunc_type='post'
 padding_type='post'
 oov_tok = "<OOV>"
-training_size = 35000
+training_size = 129970
 
 # Load data and create target array
 df = pd.read_csv('wine.csv')
