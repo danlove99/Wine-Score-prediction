@@ -11,6 +11,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.callbacks import LearningRateScheduler
+from tensorflow.keras.callbacks import ModelCheckpoint
 
 # Variables for word embedding
 vocab_size = 10000
@@ -95,7 +96,8 @@ model.compile(optimizer=optimizer,
               loss='MSE',
               metrics=['MSE'])
 
-model.fit(X, y, epochs=5, batch_size=32)
+checkpointer = ModelCheckpoint(filepath="weights.hdf5", verbose=1, save_best_only=True)
+model.fit(X, y, epochs=5, batch_size=32, validation_split=0.2, callbacks=[checkpointer])
 
 # Predict with comparison to correct value
 prediction = model.predict(test)
