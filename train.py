@@ -95,7 +95,7 @@ model.compile(optimizer=optimizer,
               loss='MSE',
               metrics=['MSE'])
 
-model.fit(X, y, epochs=5, batch_size=32,validation_split=0.2)
+model.fit(X, y, epochs=5, batch_size=32)
 
 # Predict with comparison to correct value
 prediction = model.predict(test)
